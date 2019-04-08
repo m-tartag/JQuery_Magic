@@ -1,0 +1,154 @@
+
+JQUERY --------------------------------------------------------------------------------------------------------------
+
+One big advantage of using the hosted jQuery from Google or Microsoft:
+
+Many users already have downloaded jQuery from Google or Microsoft when visiting another site. As a result, it will be 
+loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once 
+a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.
+
+
+EXAMPLES:
+
+
+$(this).hide() - hides the current element.
+
+$("p").hide() - hides all <p> elements.
+
+$(".test").hide() - hides all elements with class="test".
+
+$("#test").hide() - hides the element with id="test".
+
+
+
+
+********** THE DOCUMENT READY FUNCTION ***********
+
+
+
+$(function(){
+
+  // jQuery methods go here...
+
+});
+
+
+
+LIST OF SELECTORS ------------------ ID, CLASS, ELEMENT --------
+
+("*")	                                Selects all elements	
+$(this)	                                Selects the current HTML element	
+$("p.intro")	                        Selects all <p> elements with class="intro"	
+$("p:first")	                        Selects the first <p> element	
+$("ul li:first")	                    Selects the first <li> element of the first <ul>	
+$("ul li:first-child")	                Selects the first <li> element of every <ul>	
+$("[href]")	                            Selects all elements with an href attribute	
+$("a[target='_blank']")	                Selects all <a> elements with a target attribute value equal to "_blank"	
+$("a[target!='_blank']")	            Selects all <a> elements with a target attribute value NOT equal to "_blank"	
+$(":button")	                        Selects all <button> elements and <input> elements of type="button"	
+$("tr:even")	                        Selects all even <tr> elements	
+$("tr:odd")	                            Selects all odd <tr> elements
+
+Selectors Reference:
+
+https://www.w3schools.com/jquery/jquery_ref_selectors.asp
+
+
+
+----------- EVENTS --------------
+
+Mouse Events	KeyboardEvents	Form Events	  Document/Window Events
+
+click	        keypress	    submit	             load
+dblclick	    keydown	        change	             resize
+mouseenter	    keyup	        focus	             scroll
+mouseleave
+
+
+--------------- JQUERY EFFECTS ------------------
+--------------- JQUERY EFFECTS ------------------
+--------------- JQUERY EFFECTS ------------------
+--------------- JQUERY EFFECTS ------------------
+--------------- JQUERY EFFECTS ------------------
+
+.hide() 
+.show()
+.toggle()
+
+
+Syntax:
+
+$(selector).hide(speed,callback);
+$(selector).show(speed,callback);
+
+    speed: 1000 / "slow" / "fast"  --- all acceptable args
+    
+        The optional speed parameter can take the following values: "slow", "fast", or milliseconds.
+        The optional callback parameter is a function to be executed after toggle() completes.
+
+    EXAMPLE:
+
+            $("button").click(function(){
+            $("p").hide(1000);
+        });
+
+
+FADE
+
+    fadeIn()
+    fadeOut()
+    fadeToggle()
+    fadeTo()
+
+    Syntax:
+
+    $(selector).fadeIn(speed,callback);
+    $(selector).fadeTo(speed,opacity,callback);
+
+        Example:
+
+            $("button").click(function(){
+            $("#div1").fadeTo("slow", 0.15);
+            $("#div2").fadeTo("slow", 0.4);
+            $("#div3").fadeTo("slow", 0.7);
+        });
+
+
+SLIDE
+
+    slideDown()
+    slideUp()
+    slideToggle()
+
+        Syntax: 
+
+            $(selector).slideDown(speed,callback);
+
+                Example:
+
+                    $("#flip").click(function(){
+                        $("#panel").slideDown();
+                    });
+
+
+
+ANIMATION
+
+    With JQuery you can make custom animations 
+
+        Syntax:
+
+            $(selector).animate({params},speed,callback);
+        
+        Example:
+
+            $("button").click(function(){
+                $("div").animate({left: '250px'});
+            }); 
+
+    NOTE:
+
+        ** By default, all HTML elements have a static position, and cannot be moved.
+           To manipulate the position, remember to first set the CSS position property of the element to:
+           
+                                 relative, fixed, or absolute!
