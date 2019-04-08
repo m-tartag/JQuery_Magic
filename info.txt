@@ -13,6 +13,18 @@ JQUERY
     a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.
 
 
+        Syntax:
+
+            The jQuery syntax is tailor-made for selecting HTML elements and performing some action on the element(s).
+
+            Basic syntax is: $(selector).action()
+
+            A $ sign to define/access jQuery
+            A (selector) to "query (or find)" HTML elements
+            A jQuery action() to be performed on the element(s)
+
+
+
         BASIC EXAMPLES:
 
 
@@ -23,6 +35,7 @@ JQUERY
             $(".test").hide() - hides all elements with class="test".
 
             $("#test").hide() - hides the element with id="test".
+
 
 
 
@@ -79,7 +92,7 @@ mouseleave
 
 
 
-JQUERY EFFECTS
+JQUERY EFFECTS         (Reference List: https://www.w3schools.com/jquery/jquery_ref_effects.asp)
 --------------
 
 .hide() 
@@ -215,14 +228,148 @@ You can even specify a property's animation value as "show", "hide", or "toggle"
         }); 
 
 
-
-IMPORTANT ****
-
-
 JQuery Animate - Uses Queue Functionality!
+------------------------------------------
 
 By default, jQuery comes with queue functionality for animations.
 
 This means that if you write multiple animate() calls after each other, jQuery creates an "internal" queue with these method calls. Then it runs the animate calls ONE by ONE.
 
 So, if you want to perform different animations after each other, we take advantage of the queue functionality:
+
+
+    Example:
+
+        $("button").click(function(){
+            var div = $("div");
+                div.animate({height: '300px', opacity: '0.4'}, "slow");
+                div.animate({width: '300px', opacity: '0.8'}, "slow");
+                div.animate({height: '100px', opacity: '0.4'}, "slow");
+                div.animate({width: '100px', opacity: '0.8'}, "slow");
+            }); 
+
+    The example below first moves the <div> element to the right, and then increases the font size of the text:
+
+
+        $("button").click(function(){
+            var div = $("div");
+                div.animate({left: '100px'}, "slow");
+                div.animate({fontSize: '3em'}, "slow");
+        }); 
+
+
+JQuery Stop()
+------------
+
+The jQuery stop() method is used to stop an animation or effect before it is finished.
+
+The stop() method works for all jQuery effect functions, including sliding, fading and custom animations.
+
+    Syntax:
+
+        $(selector).stop(stopAll,goToEnd);
+
+
+            Example:
+
+                $("#stopButton").click(function(){
+                    $("#panel").stop();
+                });
+
+
+jQuery Callback Functions 
+-------------------------
+
+JavaScript statements are executed line by line. However, with effects, the next line of code can be run even though 
+the effect is not finished. This can create errors.
+
+To prevent this, you can create a callback function.
+
+A callback function is executed after the current effect is finished.
+
+
+            Syntax: 
+                
+                $(selector).hide(speed,callback);
+
+            
+                Examples
+
+                    The example below has a callback parameter that is a function that will be 
+                    executed after the hide effect is completed:
+
+                    
+                        WITH CALLBACK:
+
+                                $("button").click(function(){
+                                    $("p").hide("slow", function(){
+                                        alert("The paragraph is now hidden");
+                                    });
+                        
+                        WITHOUT CALLBACK:
+
+                                $("button").click(function(){
+                                    $("p").hide(1000);
+                                        alert("The paragraph is now hidden");
+                                });
+
+
+JQuery Chaining
+---------------
+
+
+Until now we have been writing jQuery statements one at a time (one after the other).
+
+However, there is a technique called chaining, that allows us to run multiple jQuery 
+commands, one after the other, on the same element(s).
+
+Tip: This way, browsers do not have to find the same element(s) more than once.
+
+To chain an action, you simply append the action to the previous action.
+
+The following example chains together the css(), slideUp(), and slideDown() methods. 
+The "p1" element first changes to red, then it slides up, and then it slides down:
+
+    Example:
+
+        $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+
+We could also have added more method calls if needed.
+
+Tip: When chaining, the line of code could become quite long. However, jQuery is not very strict 
+on the syntax; you can format it like you want, including line breaks and indentations.
+
+This also works just fine:
+
+    Example:
+
+        $("#p1").css("color", "red")
+            .slideUp(2000)
+            .slideDown(2000);
+
+**jQuery throws away extra whitespace and executes the lines above as one long line of code**
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+JQuery HTML
+-----------
+
+    jQuery contains powerful methods for changing and manipulating HTML elements and attributes.
+
+
+    JQuery GET
+    ----------
+        Get Content - text(), html(), and val()
+        
+        Three simple, but useful, jQuery methods for DOM manipulation are:
+
+        text() - Sets or returns the text content of selected elements
+        html() - Sets or returns the content of selected elements (including HTML markup)
+        val() - Sets or returns the value of form fields
+
+
+            Examples:
+
+                
