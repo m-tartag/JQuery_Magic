@@ -372,4 +372,163 @@ JQuery HTML
 
             Examples:
 
-                
+            $("#btn1").click(function(){
+                alert("Text: " + $("#test").text());
+            });
+            $("#btn2").click(function(){
+                alert("HTML: " + $("#test").html());
+            });
+
+        The following example demonstrates how to get the value of 
+        an input field with the jQuery val() method:
+
+            Example:
+
+                $("#btn1").click(function(){
+                    alert("Value: " + $("#test").val());
+                });
+        
+    GET Attributes - attr()
+    -----------------------
+
+    The jQuery attr() method is used to get attribute values.
+
+        Example: $("button").click(function(){
+                    alert($("#w3s").attr("href"));
+                  });
+
+    
+    JQuery SET Content and Attributes
+    ---------------------------------
+
+    Use same 3 methods from GET:
+
+        text()
+        html()
+        val()
+
+            Example:
+
+                $("#btn1").click(function(){
+                    $("#test1").text("Hello world!");
+                });
+                $("#btn2").click(function(){
+                    $("#test2").html("<b>Hello world!</b>");
+                });
+                $("#btn3").click(function(){
+                    $("#test3").val("Dolly Duck");
+                });
+
+A Callback Function for text(), html(), and val()
+
+All three of these JQuery methods also come with a callback function.
+The callback has 2 parameters: the index of the current element in the
+list of elements selected and the original (old) value. You then return
+a string you wish to use as the new value fro the function.
+
+    Example:
+
+        $("#btn1").click(function(){
+            $("#test1").text(function(i, origText){
+                return "Old text: " + origText + " New text: Hello world!
+                (index: " + i + ")"; 
+            });
+         });
+
+        $("#btn2").click(function(){
+            $("#test2").html(function(i, origText){
+                return "Old html: " + origText + " New html: Hello <b>world!</b>
+                (index: " + i + ")"; 
+            });
+        });
+
+
+Set Attributes attr()
+---------------------
+
+The jQuery attr() method is also used to set/change attribute values.
+
+    Example:
+
+        $("button").click(function(){
+            $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
+        });
+
+The attr() method also allows you to set multiple attributes at the same time.
+
+    Example:
+
+        $("button").click(function(){
+            $("#w3s").attr({
+                "href" : "https://www.w3schools.com/jquery/",
+                "title" : "W3Schools jQuery Tutorial"
+            });
+        });
+
+Callback Function or attr()
+--------------------------
+
+The jQuery method attr(), also comes with a callback function. The 
+callback function has two parameters: the index of the current element 
+in the list of elements selected and the original (old) attribute value. 
+You then return the string you wish to use as the new attribute value from 
+the function.
+
+    Example:
+
+        $("button").click(function(){
+            $("#w3s").attr("href", function(i, origValue){
+                return origValue + "/jquery/"; 
+            });
+        });
+
+
+jQuery - Add Elements
+---------------------
+
+Add New HTML Content
+
+We will look at four jQuery methods that are used to add new content:
+
+append() - Inserts content at the end of the selected elements
+prepend() - Inserts content at the beginning of the selected elements
+after() - Inserts content after the selected elements
+before() - Inserts content before the selected elements
+
+jQuery append() Method
+----------------------
+
+The jQuery append method inserts content AT THE END of the selected 
+HTML elements.
+
+    Example:
+
+        $("p").append("Some appended text.");
+        $("ol").append("<li>Appended item</li>");
+
+jQuery prepend() Method 
+-----------------------
+
+The jQuery prepend() method inserts AT THE BEGINNING of the selected HTML
+elements.
+
+    Example:
+
+        $("p").prepend("Some prepended text.");
+
+
+
+---Add Several New Elements With append() and prepend()---
+
+    Example:
+
+        function appendText() {
+            var txt1 = "<p>Text.</p>";               // Create element with HTML  
+            var txt2 = $("<p></p>").text("Text.");   // Create with jQuery
+            var txt3 = document.createElement("p");  // Create with DOM
+            txt3.innerHTML = "Text.";
+            $("body").append(txt1, txt2, txt3);      // Append the new elements 
+        }
+
+
+
