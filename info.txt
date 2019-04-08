@@ -1,40 +1,53 @@
 
-JQUERY --------------------------------------------------------------------------------------------------------------
+JQUERY
+------
 
-One big advantage of using the hosted jQuery from Google or Microsoft:
+1.  Link to HTML:
 
-Many users already have downloaded jQuery from Google or Microsoft when visiting another site. As a result, it will be 
-loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once 
-a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    One big advantage of using the hosted jQuery from Google or Microsoft:
+
+    Many users already have downloaded jQuery from Google or Microsoft when visiting another site. As a result, it will be 
+    loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once 
+    a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.
 
 
-EXAMPLES:
+        BASIC EXAMPLES:
 
 
-$(this).hide() - hides the current element.
+            $(this).hide() - hides the current element.
 
-$("p").hide() - hides all <p> elements.
+            $("p").hide() - hides all <p> elements.
 
-$(".test").hide() - hides all elements with class="test".
+            $(".test").hide() - hides all elements with class="test".
 
-$("#test").hide() - hides the element with id="test".
+            $("#test").hide() - hides the element with id="test".
 
 
 
 
 ********** THE DOCUMENT READY FUNCTION ***********
 
-
-
-$(function(){
-
-  // jQuery methods go here...
-
-});
+The ready() method is used to make a function available after the document is loaded. Whatever code you write 
+inside the $(document ).ready() method will run once the page DOM is ready to execute JavaScript code.
 
 
 
-LIST OF SELECTORS ------------------ ID, CLASS, ELEMENT --------
+                                $(function(){
+
+                                // jQuery methods go here...
+
+                                });
+
+
+
+
+SELECTORS
+---------
+
+
+LIST OF SOME SELECTORS ------------------ ID, CLASS, ELEMENT --------
 
 ("*")	                                Selects all elements	
 $(this)	                                Selects the current HTML element	
@@ -65,11 +78,9 @@ mouseenter	    keyup	        focus	             scroll
 mouseleave
 
 
---------------- JQUERY EFFECTS ------------------
---------------- JQUERY EFFECTS ------------------
---------------- JQUERY EFFECTS ------------------
---------------- JQUERY EFFECTS ------------------
---------------- JQUERY EFFECTS ------------------
+
+JQUERY EFFECTS
+--------------
 
 .hide() 
 .show()
@@ -152,3 +163,66 @@ ANIMATION
            To manipulate the position, remember to first set the CSS position property of the element to:
            
                                  relative, fixed, or absolute!
+
+
+ANIMATION on MULTIPLE ELEMENTS
+------------------------------
+
+Example:
+
+    $("button").click(function(){
+        $("div").animate({
+            left: '250px',
+            opacity: '0.5',
+            height: '150px',
+            width: '150px'
+        });
+    }); 
+
+ANIMATION USING RELATIVE VALUES 
+-------------------------------
+
+jQuery animate() - Using Relative Values
+
+It is also possible to define relative values (the value is then relative to 
+the element's current value). 
+
+
+        *******   This is done by putting += or -= in front of the value: ******
+
+            Example:
+                
+                            $("button").click(function(){
+                                $("div").animate({
+                                    left: '250px',
+                                    height: '+=150px',
+                                    width: '+=150px'
+                                });
+                            }); 
+
+
+ANIMATION USING PRE-DEFINED VALUES
+----------------------------------
+
+You can even specify a property's animation value as "show", "hide", or "toggle":
+
+    Example:
+
+        $("button").click(function(){
+            $("div").animate({
+                height: 'toggle'
+            });
+        }); 
+
+
+
+IMPORTANT ****
+
+
+JQuery Animate - Uses Queue Functionality!
+
+By default, jQuery comes with queue functionality for animations.
+
+This means that if you write multiple animate() calls after each other, jQuery creates an "internal" queue with these method calls. Then it runs the animate calls ONE by ONE.
+
+So, if you want to perform different animations after each other, we take advantage of the queue functionality:
