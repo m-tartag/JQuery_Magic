@@ -596,5 +596,15 @@ jQuery load() Method:
 
                 $("#div1").load("demo_test.txt #p1");
 
+        It is also possible to add a jQuery selector to the URL parameter.
+
+        The following example loads the content of the element with id="p1", 
+        inside the file "demo_test.txt", into a specific <div> element:
+
+                $("#div1").load("demo_test.txt #p1");
+
+
+
+
 
 
